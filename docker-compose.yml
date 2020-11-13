@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo
+    container_name: mongo
+    restart: always
+    volumes:
+      - ./data/dev/mongo:/data/db
+    ports:
+      - "27017:27017"
+  api:
+    restart: always
+    container_name: janus-api
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./backend
+    environment:
+      - PORT=5000
+      #- MONGO_URI=${MONGO_URI}
+      #- TEST_MONGO_URI=${TEST_MONGO_URI}
+      #- REDIS_PASSWORD=${REDIS_PASSWORD}
+      #- REDIS_URL=${REDIS_URL}
+      #- APP_SECRET_KEY=${APP_SECRET_KEY}
+      #- BASE_URL=${BASE_URL}
+      #- REFRESH_SECRET_KEY=${REFRESH_SECRET_KEY}
+
+    links:
+      - mongo
+
+    depends_on:
+      - mongo
+
+    volumes:
+      - /app/node_modules
+      - ./backend:/app
+    ports:
+      - "5000:5000"
+  client:
+    container_name: janus-client
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    links:
+      - api

@@ -35,7 +35,6 @@ router.post(
  */
 router.get(
   "/api/coupons",
-  validate.validateBody(validate.schemas.authLoginSchema),
   CouponController.getCoupons
 );
 
@@ -46,7 +45,7 @@ router.get(
  */
 router.post(
   "/api/coupon/validate",
-  validate.validateBody(validate.schemas.authLoginSchema),
+  validate.validateBody(validate.schemas.validateCoupon),
   CouponController.validateCoupons
 );
 

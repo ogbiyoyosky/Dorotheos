@@ -40,20 +40,25 @@ const validator = {
       minimum: Joi.number()
       .required()
       .error(new Error("Minimum is required")),
+      discount: Joi.number()
+      .required()
+      .error(new Error("Discount is required")),
+    }),
+
+    validateCoupon: Joi.object().keys({
+      couponCode: Joi.string()
+        .required()
+        .trim()
+        .error(new Error("Code is Required")),
+      
+      amount: Joi.number()
+      .required()
+      .error(new Error("Amount is required")),
     })
   
   },
 
-  validateCoupon: Joi.object().keys({
-    couponCode: Joi.string()
-      .required()
-      .trim()
-      .error(new Error("Code is Required")),
-    
-    amount: Joi.number()
-    .required()
-    .error(new Error("Amount is required")),
-  })
+  
 
 
 };

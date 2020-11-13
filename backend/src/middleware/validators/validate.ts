@@ -31,6 +31,11 @@ const validator = {
         .trim()
         .lowercase()
         .error(new Error("Description is required")),
+      type: Joi.string().valid('flat', 'percent')
+      .required()
+      .trim()
+      .error(new Error("flat or percent are the only valid values for type")),
+      
       startDate: Joi.date()
         .required()
         .error(new Error("StartDate is required")),
@@ -40,6 +45,8 @@ const validator = {
       minimum: Joi.number()
       .required()
       .error(new Error("Minimum is required")),
+      maximum: Joi.number()
+      .error(new Error("Maximum must be an Integer")),
       discount: Joi.number()
       .required()
       .error(new Error("Discount is required")),

@@ -5,10 +5,12 @@ export interface ICoupon extends Document {
   code: String;
   description: String,
   discount: Number,
+  type: String,
   constraints: {
     startDate: Date,
     endDate: Date,
-    minimum: Number
+    minimum: Number,
+    maximum: Number
   },
   createdAt: Date;
   modifiedAt: Date;
@@ -21,6 +23,11 @@ export let CouponSchema: Schema<ICoupon> = new Schema({
     required: "Code is Required",
     unique: true,
   },
+  type: {
+    type: String,
+    enum : ['percent','flat'],
+    default: 'flat'
+  },
   description: {
     type: String,
     required: "Description is required",
@@ -29,6 +36,7 @@ export let CouponSchema: Schema<ICoupon> = new Schema({
     type: Number,
     required: "Discount Amount is Required",
   },
+
 
   constraints: {
     startDate: {
@@ -42,6 +50,9 @@ export let CouponSchema: Schema<ICoupon> = new Schema({
     minimum: {
       type: Number,
       required: "Minimum Amount is Required",
+    },
+    maximum: {
+      type: Number,
     },
     type: Object
   },

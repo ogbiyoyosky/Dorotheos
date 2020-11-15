@@ -31,7 +31,7 @@ Ogbiyoyo, Emmanuel Ighosode
 
 ## LIVE FRONTEND URL
 
-https://5fb1169e741d8d00076c5d62--tender-austin-894da0.netlify.app/#/
+https://tender-austin-894da0.netlify.app
 
 ## LIVE API
 

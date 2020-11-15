@@ -28,7 +28,7 @@ const Coupon = () => {
       }
       console.log(couponDetail, "coupon");
       const result = await axios.post(
-        "http://localhost:5000/api/coupons",
+        `${process.env.REACT_APP_BASE_URL}/api/coupons`,
         couponDetail
       );
       await getAllCoupons();
@@ -68,7 +68,7 @@ const Coupon = () => {
   };
 
   const getAllCoupons = () => {
-    fetch("http://localhost:5000/api/coupons")
+    fetch(`${process.env.REACT_APP_BASE_URL}/api/coupons`)
       .then((res) => {
         return res.json();
       })

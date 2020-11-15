@@ -18,6 +18,9 @@ building the app
 
 run `docker-compose up --build`
 
+visit http://localhost:5000 for backend
+visit http://locahost:3000 for frontend
+
 The above command spin up mongodb, redis and the application.
 
 ### API DOCUMENTATION URL
@@ -31,3 +34,5 @@ Ogbiyoyo, Emmanuel Ighosode
 https://5fb1169e741d8d00076c5d62--tender-austin-894da0.netlify.app/#/
 
 ## LIVE API
+
+https://dorotheos.herokuapp.com

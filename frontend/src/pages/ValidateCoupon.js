@@ -67,7 +67,7 @@ const ValidateCoupon = () => {
   const handleSubmit = async () => {
     try {
       const result = await axios.post(
-        "http://localhost:5000/api/coupon/validate",
+        `${process.env.REACT_APP_BASE_URL}/api/coupon/validate`,
         couponDetail
       );
 

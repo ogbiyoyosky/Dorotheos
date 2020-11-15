@@ -6,7 +6,7 @@
 
 3. run `npm install` in the frontend and backend folder
 
-4. create a .env
+4. create a .env and copy env.default to .env or replace with yours
 
 5. `npm run seed`
 
@@ -25,3 +25,9 @@ The above command spin up mongodb, redis and the application.
 ## AUTHOR
 
 Ogbiyoyo, Emmanuel Ighosode
+
+## LIVE FRONTEND URL
+
+https://5fb1169e741d8d00076c5d62--tender-austin-894da0.netlify.app/#/
+
+## LIVE API

@@ -109,11 +109,7 @@ const ValidateCoupon = () => {
           ? products.map((item, index) => (
               <div key={index} className="col-md-4">
                 <div className="card" style={{ width: "18rem" }}>
-                  <img
-                    className="card-img-top"
-                    src={item.img}
-                    alt="Card image cap"
-                  />
+                  <img className="card-img-top" src={item.img} alt={item.id} />
                   <div className="card-body">
                     <h5 className="card-title">#{item.amount}</h5>
                     <p className="card-text">{item.Description}</p>

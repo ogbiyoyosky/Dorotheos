@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-const products = require("../data/products.json");
+import products from "../data/products";
 
 const ValidateCoupon = () => {
   const [couponDetail, setCouponDetail] = useState({

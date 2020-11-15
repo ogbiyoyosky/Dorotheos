@@ -1,7 +1,45 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-import products from "../data/products";
+const products = [
+  {
+    Id: "jenlooper-cactus",
+    Maker: "@jenlooper",
+    amount: 100,
+    img:
+      "https://user-images.githubusercontent.com/41929050/61567048-13938600-aa33-11e9-9cfd-712191013192.jpeg",
+    Url:
+      "https://www.hackster.io/agent-hawking-1/the-quantified-cactus-an-easy-plant-soil-moisture-sensor-e65393",
+    Title: "The Quantified Cactus: An Easy Plant Soil Moisture Sensor",
+    Description:
+      "This project is a good learning project to get comfortable with soldering and programming an Arduino.",
+    Ratings: [5, 5],
+  },
+  {
+    Id: "sailorhg-corsage",
+    Maker: "sailorhg",
+    amount: 300,
+    img:
+      "https://user-images.githubusercontent.com/41929050/61567055-142c1c80-aa33-11e9-96ff-9fbac6413625.png",
+    Url: "https://twitter.com/sailorhg/status/1090113666911891456",
+    Title: "Light-up Corsage",
+    Description: "Light-up corsage I made with my summer intern.",
+    Ratings: null,
+  },
+  {
+    Id: "jenlooper-lightshow",
+    amount: 150,
+    Maker: "@jenlooper",
+    img:
+      "https://user-images.githubusercontent.com/41929050/61567053-13938600-aa33-11e9-9780-104fe4019659.png",
+    Url:
+      "https://www.hackster.io/agent-hawking-1/bling-your-laptop-with-an-internet-connected-light-show-30e4db",
+    Title: "Bling your Laptop with an Internet-Connected Light Show",
+    Description:
+      "Create a web-connected light-strip API controllable from your website, using the Particle.io.",
+    Ratings: null,
+  },
+];
 
 const ValidateCoupon = () => {
   const [couponDetail, setCouponDetail] = useState({

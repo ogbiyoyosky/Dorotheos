@@ -5,12 +5,19 @@ import express, { Request, Response, NextFunction } from "express";
 import ApplicationError from "./errors/application-error";
 import routes from "./routes";
 import connect from "./mongo-connection";
+const cors = require('cors');
 
 
 
 const app = express();
 connect();
 
+app.use(cors());
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.use(compression());
 app.use(bodyParser.json());

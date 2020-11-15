@@ -12,7 +12,7 @@ const validator = {
       return res.status(400).send({
         status: "bad request",
         status_code: 400,
-        error: result.error.message,
+        message: result.error.message,
       });
     }
 

@@ -134,6 +134,14 @@ class CouponController {
             const expiringDate = new Date(endDate).getTime()
             const now = new Date().getTime()
 
+            // if(initialDate > now) {
+            //   return res.status(httpStatus.BAD_REQUEST).send({
+            //     message: "Coupon can't apply, coupon not yet active",
+            //     status: "bad request",
+            //     status_code: httpStatus.BAD_REQUEST,
+            //   });
+            // }
+
             let amountToBePaid: number;
             if(type == "percent") {
 
@@ -211,7 +219,7 @@ class CouponController {
 
       perPage = perPage ? parseInt(perPage, 10) : 10;
       page = page ? parseInt(page, 10) : 1;
-      const teams = await CouponModel.find()
+      const coupons = await CouponModel.find()
         .skip((page - 1) * perPage)
         .limit(perPage)
         .sort({ createdAt: -1 })
@@ -221,11 +229,11 @@ class CouponController {
         message: "Successfully  fetched all coupons",
         status: "ok",
         status_code: httpStatus.OK,
-        results: {teams,
+        results: {coupons,
           meta: {
             page,
             perPage,
-            total: teams.length
+            total: coupons.length
           }
         },
       });

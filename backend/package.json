@@ -55,7 +55,7 @@
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.19.0",
     "compression": "^1.7.2",
-    "cors": "^2.8.4",
+    "cors": "^2.8.5",
     "coveralls": "^3.0.2",
     "cross-env": "^7.0.2",
     "dotenv": "^5.0.1",
